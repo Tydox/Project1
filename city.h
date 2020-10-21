@@ -43,7 +43,16 @@ namespace pokemon
 
 	void printCitiesDetails(cityMngArray& citiesArray);
 
+	void addCity(cityMngArray& citiesArray);
 
+	bool isArithmeticProgression(cityMngArray& citiesArray);
+
+	bool isGeometricSeries(cityMngArray& citiesArray);
+
+	void removeCity(cityMngArray& citiesArray, char* name);
+
+	
+	
 
 }
 
