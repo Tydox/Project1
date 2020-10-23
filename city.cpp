@@ -228,26 +228,32 @@ namespace pokemon {
 
 	void removeCity(cityMngArray& citiesArray)
 	{
-
+		if(citiesArray.citySize==0)
+		{
+			std::cout << "NO CITIES IN ARRAY,\nPLEASE ADD SOME BEFORE TRYING TO DELETE\n";
+			return;
+		}
+		
 		{
 			using namespace std;
 
-			//char* remName = new char[1000](); //CHECK IF U CAN REALOC SIZE
+
 			char remName[1000];
 			
 			while(1)
 			{
-			//ALDJASKDJALSKJDSLDJALKSJDASLDK
-			cout << "\nEnter City's Name to remove: ";
+				std:cout << std::endl;
+				cout << "Enter City's Name to remove: ";
 
 				cin.ignore(numeric_limits<streamsize>::max(),'\n');			
 				cin.getline(remName,999);
 
 			//index of DELETE city
 			int nameIndex = findCity(citiesArray,remName,false);
-			if(nameIndex==-1)
+
+				if(nameIndex==-1)
 			{
-				cout << "Name not found" << std::endl;
+				cout << "Name not found";
 				continue;
 			}
 				
@@ -263,9 +269,7 @@ namespace pokemon {
 				citiesArray.cityNameArray[nameIndex].cityName=newCity;
 
 				
-			//RAPE NAME
-			//citiesArray.cityNameArray[nameIndex].cityName = cityName::realloc(tmpSize,citiesArray.cityNameArray[nameIndex].cityName);
-			//RAPE POKE nUM
+
 			citiesArray.cityNameArray[nameIndex].pokeNum = citiesArray.cityNameArray[citiesArray.citySize-1].pokeNum;
 
 			//DELETE
