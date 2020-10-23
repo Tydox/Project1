@@ -30,7 +30,7 @@ namespace pokemon
 		char* realloc(int newSize = 1, char* str = NULL);
 	}
 
-	namespace citiesArray
+	namespace citiesMngArray
 	{
 		City* realloc(City* citiesArray, int oldSize = 0, int newSize = 1);
 	}
@@ -49,7 +49,7 @@ namespace pokemon
 
 	bool isGeometricSeries(cityMngArray& citiesArray);
 
-	void removeCity(cityMngArray& citiesArray, char* name);
+	void removeCity(cityMngArray& citiesArray);
 
 	
 	

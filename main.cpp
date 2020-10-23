@@ -5,53 +5,62 @@
 
 int main()
 {
+	{
+		using namespace pokemon;
     //init City Manager Array and starter values
-    cityMngArray* cityManagerArray = new cityMngArray();
-    cityManagerArray->cityNameArray = pokemon::citiesArray::realloc(cityManagerArray->cityNameArray, 0, 1);
-    cityManagerArray->cityNameArray->cityName = pokemon::cityName::realloc();
-    cityManagerArray->citySize = 1;
-
-    //testing region
-    char* name = new char[7];
-    strcpy(name, "daniel");
-    cityManagerArray->cityNameArray->cityName = pokemon::cityName::realloc(4, name);
-    std::cout << cityManagerArray->cityNameArray->cityName << std::endl;
-
-    char* name2 = new char[4];
-    strcpy(name2, "dan");
-
-    char* name3 = new char[4];
-    strcpy(name3, "ta");
-    std::cout << "City:" << pokemon::findCity(*cityManagerArray, name2, false) << std::endl;
-    std::cout << "City:" << pokemon::findCity(*cityManagerArray, name3, false) << std::endl;
-    std::cout << "City:" << pokemon::IsExist(*cityManagerArray, name2) << std::endl;
-
+    cityMngArray cityManagerArray;
+    //cityManagerArray.cityNameArray = pokemon::citiesMngArray::realloc(cityManagerArray->cityNameArray, 0, 1);
+    //cityManagerArray->cityNameArray->cityName = pokemon::cityName::realloc();
+    cityManagerArray.citySize = 0;
+	cityManagerArray.cityNameArray=nullptr;
 
     int userInput = 1;
-    while (userInput < 6 && userInput>0)
+    while (userInput!=6)
     {
-        std::cout << "\nProject 1 Menu\n1. Print Cities details\n2. Add City\n3.Is Arithmetic Progression\n4.Is Geometric\n5.Remove City\n6.Exit" << std::endl;
+        std::cout
+    	<< "\nProject 1 Menu\n"
+    	<< "1. Print Cities details\n"
+    	<<"2. Add City\n"
+    	<<"3.Is Arithmetic Progression\n"
+    	<<"4.Is Geometric\n"
+    	<<"5.Remove City\n"
+    	<<"6.Exit" << std::endl
+    	<<"Option: ";
+    	
         std::cin >> userInput;
-        switch (userInput)
+
+    	switch (userInput)
         {
         case 1:
         {
+            printCitiesDetails(cityManagerArray);
             break;
         }
         case 2:
         {
+        		addCity(cityManagerArray);
             break;
         }
         case 3:
         {
+        		if(isArithmeticProgression(cityManagerArray))
+					std::cout <<"\nis Arithmetic Progression = YES\n";
+                else
+                    std::cout <<"\nis Arithmetic Progression = NO\n";
+        		
             break;
         }
         case 4:
         {
+        		if(isGeometricSeries(cityManagerArray))
+					std::cout <<"\nis Geometric Series = YES\n";
+                else
+                    std::cout <<"\nis Geometric Series = NO\n";
             break;
         }
         case 5:
         {
+        		removeCity(cityManagerArray);
             break;
         }
         case 6:
@@ -59,27 +68,14 @@ int main()
             std::cout << "Thank you for using our program!" << std::endl;
             break;
         }
-        //	default: 
+        default:
+	        {
+		        std::cout << "Invalid Number Input.. Restarting\n";
+        		break;
+	        } 
         }
     }
 
-    {
-
-        using namespace std;
-        char* name = new char[7];
-
-        strcpy(name, "daniel");
-        cout << name << endl;
-        char* newName = pokemon::cityName::realloc(4, name);
-
-        cout << newName << endl;
-
-
-        char* newName2 = pokemon::cityName::realloc(7, newName);
-
-        cout << newName2 << endl;
-        strcpy(newName2, "lavati");
-        cout << newName2;
-
+ 
     }
 }
