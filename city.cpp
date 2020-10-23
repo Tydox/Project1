@@ -272,7 +272,7 @@ namespace pokemon {
 			citiesArray.cityNameArray=citiesMngArray::realloc(citiesArray.cityNameArray,citiesArray.citySize,citiesArray.citySize-1);
 
 				--citiesArray.citySize;
-
+				 
 
 				break;
 			}
