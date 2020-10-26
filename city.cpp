@@ -8,12 +8,11 @@ namespace pokemon {
 
 	char* cityName::realloc(int newSize, char* str)
 	{
+		char* newStr = new char[newSize]();
 		if (str == NULL)
 		{
-			char* newStr = new char[1]();
 			return newStr;
 		}
-		char* newStr = new char[newSize]();
 
 		int oldSize = (int)strlen(str) + 1;
 
