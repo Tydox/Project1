@@ -5,65 +5,74 @@
 
 int main()
 {
-	{
-		using namespace pokemon;
+    { using namespace pokemon;
+    	
     //init City Manager Array and starter values
     cityMngArray cityManagerArray;
-    //cityManagerArray.cityNameArray = pokemon::citiesMngArray::realloc(cityManagerArray->cityNameArray, 0, 1);
-    //cityManagerArray->cityNameArray->cityName = pokemon::cityName::realloc();
+    
     cityManagerArray.citySize = 0;
 	cityManagerArray.cityNameArray=nullptr;
 
-    int userInput = 1;
-    while (userInput!=6)
+    char userInput = '1';
+    while (userInput!='6')
     {
         std::cout
-    	<< "\nProject 1 Menu\n"
+    	<< "\n----Project 1 Menu----\n"
     	<< "1. Print Cities details\n"
-    	<<"2. Add City\n"
-    	<<"3.Is Arithmetic Progression\n"
-    	<<"4.Is Geometric\n"
-    	<<"5.Remove City\n"
-    	<<"6.Exit" << std::endl
-    	<<"Option: ";
+    	<< "2. Add City\n"
+    	<< "3. Is Arithmetic Progression\n"
+    	<< "4. Is Geometric\n"
+    	<< "5. Remove City\n"
+    	<< "6. Exit" << std::endl
+    	<< "Option: ";
     	
         std::cin >> userInput;
 
     	switch (userInput)
         {
-        case 1:
+        case '1':
         {
+            if (isEmpty(cityManagerArray) == false)
             printCitiesDetails(cityManagerArray);
-            break;
+
+        	break;
         }
-        case 2:
+        case '2':
         {
         		addCity(cityManagerArray);
             break;
         }
-        case 3:
+        case '3':
         {
-        		if(isArithmeticProgression(cityManagerArray))
-					std::cout <<"\nis Arithmetic Progression = YES\n";
+            if (isEmpty(cityManagerArray) == false)
+            {
+                if (isArithmeticProgression(cityManagerArray))
+                    std::cout << "\nis Arithmetic Progression = YES\n";
                 else
-                    std::cout <<"\nis Arithmetic Progression = NO\n";
+                    std::cout << "\nis Arithmetic Progression = NO\n";
+            }
         		
             break;
         }
-        case 4:
+        case '4':
         {
-        		if(isGeometricSeries(cityManagerArray))
-					std::cout <<"\nis Geometric Series = YES\n";
+            if (isEmpty(cityManagerArray) == false)
+            {
+                if (isGeometricSeries(cityManagerArray))
+                    std::cout << "\nis Geometric Series = YES\n";
                 else
-                    std::cout <<"\nis Geometric Series = NO\n";
+                    std::cout << "\nis Geometric Series = NO\n";
+            }
             break;
         }
-        case 5:
+        case '5':
         {
+            if (isEmpty(cityManagerArray) == false)
         		removeCity(cityManagerArray);
+        		
             break;
         }
-        case 6:
+        case '6':
         {
             std::cout << "Thank you for using our program!" << std::endl;
             break;

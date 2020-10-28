@@ -1,6 +1,3 @@
-//
-// Created by Daniel Fellous on 10/20/20.
-//
 #ifndef CITY_H
 #define CITY_H
  
@@ -51,6 +48,7 @@ namespace pokemon
 
 	void removeCity(cityMngArray& citiesArray);
 
+	bool isEmpty(cityMngArray& citiesArray);
 	
 	
 
